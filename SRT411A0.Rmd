@@ -1,0 +1,198 @@
+---
+title: "SRT411A0"
+author: "Soruban Vinayagamoorthy"
+date: "February 16, 2018"
+output:
+  pdf_document: default
+  html_document: default
+link to the assignment: Assignments -> Assignment 0
+link to the gitHub Repository: https://github.com/ShadowOfZed/SRT411-Assignment-0.git
+gitHub Username: ShadowOfZed
+sources 1: Short Introduction to R (https://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf)
+sources 2: How to present your data science portfolio on Github (https://www.dataquest.io/blog/how-to-share-data-science-portfolio/)
+sources 3: R Markdown â€” Dynamic Documents for R (large resource) (http://rmarkdown.rstudio.com/)
+sources 4: Writing reproducible reports in R with markdown, knitr and pandoc (http://nicercode.github.io/guides/reports/)
+sources 5: Markdown (http://kbroman.org/knitr_knutshell/pages/markdown.html)
+sources 6: knitr with R Markdown (http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html)
+sources 7: R markdown cheatsheet (https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+description: This is an introduction to R Programming and GitHUb
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Information
+```{r}
+##link to the assignment: Assignments -> Assignment 0
+##link to the gitHub Repository: https://github.com/ShadowOfZed/SRT411-Assignment-0.git
+##gitHub Username: ShadowOfZed
+##sources 1: Short Introduction to R (https://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf)
+##sources 2: How to present your data science portfolio on Github (https://www.dataquest.io/blog/how-to-share-data-science-portfolio/)
+##sources 3: R Markdown â€” Dynamic Documents for R (large resource) (http://rmarkdown.rstudio.com/)
+##sources 4: Writing reproducible reports in R with markdown, knitr and pandoc (http://nicercode.github.io/guides/reports/)
+##sources 5: Markdown (http://kbroman.org/knitr_knutshell/pages/markdown.html)
+##sources 6: knitr with R Markdown (http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html)
+##sources 7: R markdown cheatsheet (https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+##description: This is an introduction to R Programming and GitHUb
+```
+
+##Task 1
+```{r}
+#3.1 Calculator
+#Task 1: Calculating amount of time spent in university
+
+timeSpent=((2017-2014)/(2014-1995))*100
+print(timeSpent)
+```
+
+##Task 2
+```{r}
+#3.2 Workspace
+#Task 1 with multiple steps
+studyDifferent=2017-2014
+lifeDifferent=2014-1995
+studyRatio=studyDifferent/lifeDifferent
+studyRatioPercentage=studyRatio*100
+print(studyRatioPercentage)
+```
+
+##Task 3
+```{r}
+#3.4 Functions
+#Using Functions
+#Compute the sum of 4, 5, 8 and 11 by first combining
+#them into a vector and then using the
+#function sum.
+
+vector1=c(4,5,8,11)
+sum(x=vector1)
+```
+
+##Task 4
+```{r}
+#3.5 Plots
+#Plot 100 normal random numbers.
+randomNum = rnorm(100)
+plot(randomNum)
+```
+
+##Task 5
+```{r}
+#4 Help and documentation
+help(sqrt)
+example(sqrt)
+```
+
+##Task 6
+```{r}
+#5 Scripts
+#Using if loop to run the function 5 times
+for(i in 1:5){
+  source("firstscript.R")
+}
+```
+
+##Task 7
+```{r}
+#6.1 Vectors
+#6.2 Matrices
+P = seq(from=31, to=60, by=1)
+Q = matrix(P,ncol=5, nrow=6)
+#OR
+P=c()
+for(i in 1:30){
+  P[i]=30+i
+}
+Q=matrix(P,ncol=5,nrow=6)
+print(Q)
+```
+
+##Task 8
+```{r}
+#6.3 Data frames
+#Calling function
+for(i in 1:5){
+  source("randomMatrix.R")
+}
+```
+
+##Task 9
+```{r}
+#7 Graphics
+#Meanings
+#rgb = r=red, g=green, b=blue, and the values goes in an order, (r,g,b,a(alpha/opacity))
+#lwd = line width, lty is line type
+#pch = plotting symbol
+#cex = plotting text and symbol scale size
+```
+
+##Task 10
+```{r}
+#8 Reading and writing data files
+#reading file
+file1 = read.table(file="tst1.txt",header=TRUE)
+#multiplying the column "g" by 5
+file1$g=(file1$g)*5
+#wring new file with new values
+write.table(file1, file="tst2.txt",row.names=FALSE)
+```
+
+##Task 11
+```{r}
+#9 Not available data
+randomNumForMean = rnorm(100)
+sqrtOfVector=sqrt(randomNumForMean)
+meanOfSqrt=mean(sqrtOfVector)
+#Since NaNs produced when calculation sqrt, therfore we cant take to further to calculate the mean, but if we dont do the sqrt function and go for calculating mean, it will.
+```
+
+##Task 12
+```{r}
+#10 Classes
+#10.2 Dates
+specailDays=strptime( c("20180216","20141115","20180717"),format="%Y%m%d")
+present=c(0,1,3)
+plot(specailDays, present)
+```
+
+##Task 13
+```{r}
+#11.2 For-loop
+#making vector from 1 to 100
+oneToHundred=seq(from=1, to=100, by=1)
+s=c()
+for(i in 1:100){
+  if (i<5 | i>90) {
+    s[i]=oneToHundred[i]*10
+  }
+  else{
+    s[i]=oneToHundred[i]*0.1
+  }
+}
+s
+```
+
+
+##Task 14
+```{r}
+#Writing function to previous task
+function1=function(arg1){
+  vector=arg1
+  s=c()
+  for(i in length(vector)){
+    if (i<5 | i>90) {
+      s[i]=vector[i]*10
+    }
+    else{
+      s[i]=vector[i]*0.1
+    }
+  }
+  s
+}
+
+test=c(1,2,3)
+function1(arg1=test)
+
+```
+
